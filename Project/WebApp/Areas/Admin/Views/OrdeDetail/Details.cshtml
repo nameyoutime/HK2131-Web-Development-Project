@@ -1,0 +1,66 @@
+﻿@model WebApp.Models.OrderDetail
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>OrderDetail</h4>
+    <hr />
+    <dl class="row">
+        @* product *@
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.Description)
+        </dd>
+        <dt class="col-sm-2">
+            Order @Html.DisplayNameFor(model => model.Quanlity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Quanlity)
+        </dd>
+
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.PromotionPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.PromotionPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.Quality) in stock
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.Quality)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.ImageUrl)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.ImageUrl)
+        </dd>
+
+
+    </dl>
+</div>
+<div>
+    @*<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |*@
+    <a asp-area="Admin" asp-controller="OrdeDetail" asp-action="Index" asp-route-id="@Model.OrderId">Back to List</a>
+</div>

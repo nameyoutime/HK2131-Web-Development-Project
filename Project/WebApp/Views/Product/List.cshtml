@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Product Page!";
+}
+@model List<WebApp.Models.Product>
+@*<ul>
+        @foreach (var p in Model)
+        {
+            <li>@p.Id - @p.Name - @p.ImageUrl</li>
+        }
+
+    </ul>*@
+
+
+@*<div class="text-center">
+            <h1 class="display-4">Welcome</h1>
+            <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+
+
+<!-- /.col -->
+<div class="col-md-9">
+    <div>
+        <ol class="breadcrumb">
+            <li><a href="#">List</a></li>
+            <li class="active">Item</li>
+        </ol>
+    </div>
+    <!-- /.div -->
+    <div class="row">
+        <div class="btn-group alg-right-pad">
+            <button type="button" class="btn btn-default"><strong>1235 </strong>items</button>
+            <div class="btn-group">
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                    Sort Products &nbsp;
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">By Price Low</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">By Price High</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">By Popularity</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">By Reviews</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <!-- /.col -->
+        @for (int i = 0; i < Model.Count; i++)
+        {
+
+            <div class="col-md-4 text-center col-sm-6 col-xs-6">
+                <div class="thumbnail product-box">
+                    <img src="@Url.Content(Model[i].ImageUrl)" alt=@Model[i].ImageUrl />
+                    <div class="caption">
+                        <h3><a href="#">@Model[i].Name</a></h3>
+                        <p>Price : <strong>$@Model[i].Price</strong> </p>
+                        <p><a href="#">Amount: @Model[i].Quality </a></p>
+                        <p>Description: @Model[i].Description </p>
+                        <p>
+                            <a asp-controller="cart" asp-action="addcart" asp-route-id="@Model[i].Id" class="btn btn-success" role="button">Add To Cart</a>
+                            <a asp-controller="product" asp-action="detail" asp-route-id="@Model[i].Id" class="btn btn-primary" role="button">See Details</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+
+
+
+
+</div>
+<!-- /.col -->
+<!-- /.row -->
